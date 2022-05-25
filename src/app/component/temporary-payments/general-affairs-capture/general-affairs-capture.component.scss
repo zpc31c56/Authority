@@ -1,0 +1,27 @@
+::ng-deep #data-grid-demo {
+  min-height: 700px;
+}
+
+::ng-deep #gridDeleteSelected {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  margin: 1px;
+  top: 0;
+}
+
+::ng-deep #gridDeleteSelected .dx-button-text {
+  line-height: 0;
+}
+
+.illustrate{
+  margin-top: 2rem;
+}
+
+h4{
+  text-align: center;
+}
+
+#data-grid-demo {
+  min-height: 500px;
+}

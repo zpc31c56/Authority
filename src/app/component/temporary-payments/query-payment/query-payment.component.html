@@ -1,0 +1,45 @@
+
+<div class="card">
+  <div class="card-header">
+    <div style="float:left; color: #E96D00; font-size: 24px; font-weight: bold;">總務立案</div>
+  </div>
+  <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">代扣年月</div>
+            <div class="dx-field-value">
+              <dx-date-box [value]="now" type="date"> </dx-date-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div style="float: right;">
+            <dx-button stylingMode="outlined" text="送 出" type="default" [width]="200">
+            </dx-button>
+          </div>
+        </div>
+      </div>
+      <div class="row illustrate">
+        <dx-data-grid id="gridContainer" [dataSource]="employees" keyExpr="ID" [showBorders]="true">
+          <dxo-selection mode="multiple"></dxo-selection>
+
+          <dxi-column dataField="Prefix" [width]="80" caption="代扣年月"></dxi-column>
+          <dxi-column dataField="FirstName" [width]="80" caption="項目代號"></dxi-column>
+          <dxi-column dataField="LastName" [width]="125" caption="職工卡號"></dxi-column>
+          <dxi-column dataField="Position" [width]="125" caption="職工姓名"></dxi-column>
+          <dxi-column dataField="State" caption="代扣金額"></dxi-column>
+          <dxi-column dataField="BirthDate" caption="補貼金額"></dxi-column>
+          <dxi-column dataField="Remark" caption="暫付款說明"></dxi-column>
+          <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+          <div *dxTemplate="let employee of 'detail'">
+            <!-- <div class="master-detail-caption">{{
+            employee.data.FirstName + " " + employee.data.LastName + "'s Tasks:"
+            }}</div> -->
+            <detail-grid [key]="employee.key"></detail-grid>
+          </div>
+        </dx-data-grid>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,35 @@
+
+<div class="card">
+  <div class="card-header">
+    <div style="float:left; color: #E96D00; font-size: 24px; font-weight: bold;">暫付款列印</div>
+  </div>
+  <div class="card-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">列印年月</div>
+            <div class="dx-field-value">
+              <dx-date-box [value]="now" type="date"> </dx-date-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">代碼</div>
+            <div class="dx-field-value">
+              <dx-text-box placeholder="請輸入代碼..." [showClearButton]="true"> </dx-text-box>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row illustrate" style="justify-content: center;">
+      <div>
+        <dx-button stylingMode="outlined" text="列 印" type="normal" [width]="200">
+        </dx-button>
+      </div>
+    </div>
+  </div>
+</div>
+

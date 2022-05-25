@@ -1,0 +1,61 @@
+﻿<div class="app-body" (keyup)="LoginEnter($event)">
+  <div class="container">
+    <div class="row">
+      <div class="out">
+        <div class="bj">
+          <form>
+            <div class="logininput">
+              <div class="imglogo">
+                <img src="..\assets\img\LOGOs_en-color-1.svg" class="text-align:center logo">
+              </div>
+              <div class="systemname">
+                <span>
+                  <p>總務整合系統</p>
+                </span>
+              </div>
+              <div class="input-group mb-3">
+                <div class="loginicon">
+                  <img src="..\assets\img\ico-id.svg">
+                </div>
+                <div class="dx-field-value">
+                  <dx-text-box placeholder="UserName" [width]="280" [height]="40" [(ngModel)]="account" name="account">
+                  </dx-text-box>
+                </div>
+              </div>
+              <div class="input-group mb-4" style="display: flex; align-items:center;">
+                <div class="loginicon">
+                  <img src="..\assets\img\ico-pw.svg">
+                </div>
+                <div class="dx-field-value">
+                  <dx-text-box placeholder="Password" [width]="280" [height]="40" [(ngModel)]="password" mode="password"
+                    name="password">
+                  </dx-text-box>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div style="margin-top: 20px">
+                    <dx-button stylingMode="contained" text="登 入" [width]="315" [height]="50" (click)=onSubmit()
+                      style="color: white;">
+                    </dx-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div>
+            <img src="..\assets\img\LoginLogo1.png" class="text-align:center img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <span class="footertext">
+      <p>最佳瀏覽器建議 Google Chrome 瀏覽器。</p>
+    </span>
+  </div>
+
+  <dx-load-panel #loadPanel shadingColor="rgba(0,0,0,0.4)" [position]="{ of: '#employee' }" [(visible)]="loadingVisible"
+    [showIndicator]="true" [showPane]="true" [shading]="true" [closeOnOutsideClick]="false">
+  </dx-load-panel>

@@ -1,0 +1,41 @@
+
+<div class="card">
+  <div class="card-header">
+    <div style="float:left; color: #E96D00; font-size: 24px; font-weight: bold;">補助金額維護主檔</div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div id="data-grid-demo">
+        <dx-data-grid id="gridContainer" [dataSource]="dataSource" keyExpr="cgP_Id" [showBorders]="true" (onToolbarPreparing)="onToolbarPreparing($event)">
+          <dxo-paging [enabled]="true"></dxo-paging>
+          <dxo-paging [pageSize]="10"></dxo-paging>
+          <dxo-pager [allowedPageSizes]="[10]" [showPageSizeSelector]="false" [showNavigationButtons]="true"></dxo-pager>
+
+          <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="false" [useIcons]="false">
+            <dxo-texts addRow="新增" editRow="編輯" deleteRow="刪除" saveRowChanges="儲存" cancelRowChanges="取消"></dxo-texts>
+            <dxo-popup title="案件資訊" [showTitle]="true" [width]="700" [height]="525"></dxo-popup>
+            <dxo-form>
+              <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+                <dxi-item dataField="cgP_GiftTypeName"></dxi-item>
+                <dxi-item dataField="cgP_CaseType"></dxi-item>
+                <dxi-item dataField="cgP_GiftType"></dxi-item>
+                <dxi-item dataField="cgP_CaseTypeName"></dxi-item>
+                <dxi-item dataField="cgP_JobCode"></dxi-item>
+                <dxi-item dataField="cgP_GiftLimit"></dxi-item>
+              </dxi-item>
+            </dxo-form>
+          </dxo-editing>
+
+          <dxi-column dataField="cgP_GiftTypeName" caption="補貼類別名稱"></dxi-column>
+          <dxi-column dataField="cgP_GiftType" caption="補貼類別" [width]="100"></dxi-column>
+          <dxi-column dataField="cgP_CaseType" caption="案別"></dxi-column>
+          <dxi-column dataField="cgP_CaseTypeName" caption="案別備註說明"> </dxi-column>
+          <dxi-column dataField="cgP_JobCode" caption="適用補貼職稱代號" [width]="170"> </dxi-column>
+          <dxi-column dataField="cgP_GiftLimit" caption="補貼金額"> </dxi-column>
+        </dx-data-grid>
+
+      </div>
+    </div>
+  </div>
+</div>
+

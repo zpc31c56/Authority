@@ -1,0 +1,72 @@
+<div class="wrap">
+
+  <header class="container-fluid">
+    <div class="d-flex align-items-center row primary-bg-c">
+      <div class="col-md-8 d-flex align-items-center col-sm-12 logo_forSP">
+        <a href="javascript:;" class="menuIcon" (click)="menuToggle()">
+          <i class="dx-icon-menu"></i>
+        </a>
+        <a href="javascript:;" class="logo">
+          <img src="../assets/img/LOGOs_single-while.svg" alt="">
+        </a>
+        <h1 class="text">總務整合系統</h1>
+      </div>
+      <div class="col-md-4 align-items-center justify-content-end d-md-flex d-none">
+        <h2 class="name mr-4">
+          <i class="dx-icon-user"></i>
+          {{userName}}
+        </h2>
+        <a href="javascript:;" class="logOut ml-1 mr-4" (click)="logout()">
+          <i class="dx-icon-export"></i>
+          登出
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="container-fuild d-flex overflow-hidden viewHeight">
+    <nav class="menuBg" [class.open]="menuOpen" (click)="subMenuToggle($event)">
+      <ul class="menu mb-0 pl-0">
+        <li>
+          <a routerLink="/home" class="d-flex align-items-center pt-2 pb-2 pl-3 pr-3 menuItem" id="goToHomePage">
+            <i class="dx-icon-home icon"></i>
+            首頁
+          </a>
+        </li>
+        <li *ngFor="let menuItem of menuItems">
+          <a href="javascript:;" class="d-flex align-items-center pt-2 pb-2 pl-3 pr-3 menuItem position-relative"
+            [class.clicked]="visibility == menuItem.actionCode" id="{{menuItem.actionCode}}" data-name="{{menuItem.actionName}}">
+            <i [class]="menuItem.icon"></i>
+            {{menuItem.actionName}}
+            <i class="dx-icon-chevrondown position-absolute arrow" [class.dx-icon-chevronup]="visibility == menuItem.actionCode"></i>
+          </a>
+          <ul class="pl-0 subMenu" [class.open]="visibility == menuItem.actionCode">
+            <li *ngFor="let subMenuItem of subMenuItems">
+              <a [routerLink]="subMenuItem.href" class="subMenuItem pl-3 d-flex align-items-center" *ngIf="subMenuItem.parentCode == menuItem.actionCode" data-name="{{subMenuItem.actionName}}" (click)="currentPath = subMenuItem.tag">
+                <i class="dx-icon-isnotblank icon"></i>
+                {{subMenuItem.actionName}}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:;" class="d-md-none d-flex align-items-center pt-2 pb-2 pl-3 pr-3 menuItem" (click)="logout()">
+            <i class="dx-icon-export icon"></i>
+            登出
+          </a>
+        </li>
+        <li class="position-fixed w-100" style="bottom: 10%;">
+          <a href="javascript:;" class="d-md-none d-flex align-items-center pt-2 pb-2 pl-3 pr-3 menuItem">
+            <i class="dx-icon-user icon"></i>
+            {{userName}}
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <article class="contentBg" [class.full]="articleFull">
+      <div class="container-fluid">
+        <p class="breadcrumbs mb-0">{{currentPath}}</p>
+        <router-outlet></router-outlet>
+      </div>
+    </article>
+  </main>
+</div>

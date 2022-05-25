@@ -1,0 +1,162 @@
+<div class="card">
+  <div class="card-header">
+    <div style="float:left; color: #E96D00; font-size: 24px; font-weight: bold;">禮支立案申請</div>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="row">
+          <div class="col-6">
+            <div class="dx-field">
+              <div class="dx-field-label">申請人姓名</div>
+              <div class="dx-field-value">
+                <dx-text-box placeholder="Enter full name here..." [showClearButton]="true"> </dx-text-box>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <label>紅白帖上傳:</label>
+            <div style="float:right">
+              <!-- <dx-button stylingMode="outlined" text="上傳紅白帖" type="default" [width]="200">
+            </dx-button> -->
+              <input id="upload" type="file" name="files" accept="image/*">
+            </div>
+          </div>
+      </div>
+      <div class="row illustrate">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">其他備註:</div>
+            <div class="dx-field-value">
+              <dx-text-box placeholder="Enter full name here..." [showClearButton]="true"> </dx-text-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">儀式日期:</div>
+            <div class="dx-field-value">
+              <dx-date-box [value]="now" type="date" (onValueChanged)="onValueDateChanged($event)"> </dx-date-box>
+            </div>
+          </div>
+        </div>
+    </div>
+      <hr>
+      <div class="row illustrate">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">申請年月:</div>
+            <div class="dx-field-value">
+              <dx-date-box [value]="now" type="date" (onValueChanged)="onValueDateChanged($event)"> </dx-date-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">立案代碼:</div>
+            <div class="dx-field-value">
+              <dx-select-box [items]="simpleProducts" placeholder="Choose Product" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row illustrate">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">立案說明:</div>
+            <div class="dx-field-value">
+              <dx-text-box placeholder="請填寫..." [showClearButton]="true" [(ngModel)]="cashAdvanceSummary" name="cashAdvanceSummary"> </dx-text-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">是否公布:</div>
+            <div class="dx-field-value">
+              <dx-select-box [items]="announced" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row illustrate">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">禮金墊付始日:</div>
+            <div class="dx-field-value">
+              <dx-date-box [value]="now" type="date" (onValueChanged)="startDateChanged($event)"> </dx-date-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">禮金墊付迄日:</div>
+            <div class="dx-field-value">
+              <dx-date-box [value]="now" type="date" (onValueChanged)="endDateChanged($event)"> </dx-date-box>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row illustrate">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">所屬單位:</div>
+            <div class="dx-field-value">
+              <dx-select-box [items]="department" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">直屬主管補貼:</div>
+            <div class="dx-field-value">
+              <dx-select-box [items]="directsupervisor" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row illustrate">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">相關主管補貼:</div>
+            <div class="dx-field-value">
+              <dx-select-box [items]="allrelevantsupervisors" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">補貼類別:</div>
+            <div class="dx-field-value">
+              <dx-select-box [items]="subsidycategory" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row illustrate">
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">申請人職稱:</div>
+            <div class="dx-field-value">
+              <dx-text-box placeholder="請輸入職稱" [showClearButton]="true" [(ngModel)]="applicantTitle" name="applicantTitle"></dx-text-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="dx-field">
+            <div class="dx-field-label">申請人案別:</div>
+            <div class="dx-field-value">
+              <dx-select-box [items]="applicantcase" (onValueChanged)="onValueChanged($event)"></dx-select-box>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid illustrate">
+        <div class="row" style="justify-content: center;">
+          <div>
+            <dx-button stylingMode="contained" text="申 請" type="normal" [width]="200" (onClick)="onSubmit()">
+            </dx-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

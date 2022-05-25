@@ -1,0 +1,11 @@
+<dx-data-grid [dataSource]="tasksDataSource" [showBorders]="true" [columnAutoWidth]="true">
+  <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true">
+  </dxo-editing>
+  <dxi-column dataField="Subject" dataType="string" caption="暫付款年月"></dxi-column>
+  <dxi-column dataField="StartDate" dataType="string" caption="代碼"></dxi-column>
+  <dxi-column dataField="DueDate" dataType="string" caption="暫付款說明明細"></dxi-column>
+  <dxi-column dataField="Status" dataType="string" caption="類別"></dxi-column>
+  <dxi-column dataField="Priority" dataType="string" caption="案別"></dxi-column>
+  <dxi-column dataField="Completion" dataType="string" caption="有效起始日"></dxi-column>
+  <dxi-column dataField="EmployeeID" dataType="string" caption="有效終訖日"></dxi-column>
+</dx-data-grid>
